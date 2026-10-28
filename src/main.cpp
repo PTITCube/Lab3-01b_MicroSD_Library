@@ -26,7 +26,7 @@ void setup() {
 void loop() {
     static int counter = 0;
     
-    String data = "Log entry #" + String(counter) + " - Uptime: " + String(millis()) + "ms";
+    String data = "Hello world #" + String(counter) + " - Uptime: " + String(millis()) + "ms";
     Serial.println(data);
     
     myDisk.logData(data.c_str());
