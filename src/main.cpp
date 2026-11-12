@@ -6,15 +6,18 @@
  */
 
 #include <Arduino.h>
+
 #include <PTITCube.h>
+
+PTIT_CDH cdh;
 
 PTIT_Storage myDisk;
 
 void setup() {
-    Serial.begin(115200);
-    while (!Serial) { delay(10); }
+    cdh.begin(115200);
+    while (!cdh) { delay(10); }
 
-    Serial.println("\n[EXAMPLE] Khởi tạo thẻ nhớ...");
+    cdh.println("\n[EXAMPLE] Khởi tạo thẻ nhớ...");
     myDisk.init();
     
     // Ghi thử một dòng Boot vào log
@@ -27,7 +30,7 @@ void loop() {
     static int counter = 0;
     
     String data = "Hello world #" + String(counter) + " - Uptime: " + String(millis()) + "ms";
-    Serial.println(data);
+    cdh.println(data);
     
     myDisk.logData(data.c_str());
     
