@@ -17,7 +17,7 @@ void loop() {
     static int counter = 0;
     
     char buf[64];
-    snprintf(buf, sizeof(buf), "[DATA] #%d | Uptime: %lums", counter++, millis());
+    snprintf(buf, sizeof(buf), "DATA #%d | Uptime: %lums", counter++, millis());
     cdh.println(buf);
     
     myDisk.logData(buf);
